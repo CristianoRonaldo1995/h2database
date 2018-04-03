@@ -1,0 +1,3 @@
+insert into account(id, firstname, surname, accountno) values ('1','john', 'Doe', "1234");
+insert into account(id,firstname, surname, accountno) values ('2','jane', 'Doe', "1234");
+insert into account(id,firstname, surname, accountno) values ('3','jim', 'Taylor', "1234");

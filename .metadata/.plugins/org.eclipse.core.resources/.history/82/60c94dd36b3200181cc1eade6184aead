@@ -1,0 +1,53 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import com.google.gson.Gson;
+
+public class serviceClass {
+	
+	private HashMap<Integer, accountClass> hmap = new HashMap<Integer, accountClass>();
+	private Gson gson = new Gson();
+	int counter = 0;
+	
+	public void adding(accountClass firstName) {
+		
+		hmap.put(counter, firstName);
+		counter++;
+	}
+
+	public void retrieving() {
+		
+		for(accountClass account: hmap.values()) 
+		{
+			System.out.println(account.getFirstName());
+		}
+	}
+	
+	public void convertingJavaObjToJson() {
+		
+		String json = gson.toJson(hmap);
+		System.out.println(json);
+	}
+
+	public int countAccount(String string) {
+		
+//		for (Iterator iter = hm.entrySet().iterator(); iter.hasNext();) {
+//			  Map.Entry e = (Map.Entry) iter.next();
+//			  if (key.equals(e.getKey()) && val.equals(e.getValue())) {
+//			    // do something
+		Object Value = null;
+		for(Iterator iter = hmap.entrySet().iterator(); iter.hasNext();) {
+			Map.Entry e= (Map.Entry) iter.next();
+			if (Value.equals(e.getValue())) {
+				System.out.println(hmap);
+			}
+		}
+		
+		return 0;
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,29 @@
+import static org.junit.Assert.*;
+
+import org.hamcrest.collection.IsMapContaining;
+import org.hamcrest.core.IsSame;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class test {
+
+	serviceClass hmap;
+	
+	@Before
+	public void before() {
+		hmap = new serviceClass();
+	}
+	
+	@Test
+
+	public void getCountForFirstNamesInAccount() {
+		Assert.assertEquals(service.getNumberOfAccountWithFirstName("Joe"), 0);
+		service.addAccountFromMap(joeBloggs);
+		Assert.assertEquals(service.getNumberOfAccountWithFirstName("Joe"), 1);
+		Account joeGordon = new Account("Joe", "Gordon", "1234");
+		service.addAccountFromMap(joeGordon);
+		Assert.assertEquals(service.getNumberOfAccountWithFirstName("Joe"), 2);
+	}
+
+}

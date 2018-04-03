@@ -1,0 +1,37 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import com.google.gson.Gson;
+public class AccountService {
+
+	private Map<Integer, accountClass> accountMap;
+
+	private int count = 0;
+
+	public AccountService() {
+		accountMap = new HashMap<Integer, accountClass>();
+	}
+
+	public void addAccountFromMap(accountClass userAccount) {
+		accountMap.put(count, userAccount);
+		count++;
+	}
+
+	public void removeAccountFromMap(Integer accountToRemove) {
+		boolean countExists = accountMap.containsKey(accountToRemove);
+		if (countExists) {
+			accountMap.remove(accountToRemove);
+		}
+	}
+
+	public Map<Integer, accountClass> getAccountMap() {
+		return accountMap;
+	}
+
+	public int getNumberOfAccountWithFirstName(String firstNameOfAccount) {
+		return (int) accountMap.values().stream()
+				.filter(eachAccount -> eachAccount.getFirstName().equals(firstNameOfAccount)).count();
+	}
+
+}
